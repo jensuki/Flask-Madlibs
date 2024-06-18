@@ -5,10 +5,11 @@
 {% block content %}
   <h1>Madlibs</h1>
   <form action="/story">
+      <input type="hidden" name="story_id" value="{{ story_id }}">
       {% for prompt in prompts %}
-            <label for="prompt">{{ prompt }}:</label>
-            <input type="text" id="{{ prompt }}" name="{{ prompt }}" required><br>
-        {% endfor %}
-    <button>Submit</button>
+          <label for="{{ prompt }}">{{ prompt }}:</label>
+          <input type="text" id="{{ prompt }}" name="{{ prompt }}" required><br>
+      {% endfor %}
+    <button type="submit">Submit</button>
   </form>
 {% endblock %}
